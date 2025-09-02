@@ -1,0 +1,646 @@
+PS C:\Users\noah\VsCode\ITS3410A-A1>
+PS C:\Users\noah\VsCode\ITS3410A-A1> powershell -ExecutionPolicy Bypass -File "c:\Users\noah\VsCode\ITS3410A-A1\Module 2\project1.ps1"
+Script Start Date and Time: 09/01/2025 20:51:49
+System Hostname: DESKTOP-NAB
+System IP Addresses:
+192.168.1.51
+127.0.0.1
+System DNS Servers:
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+192.168.1.1
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+fec0:0:0:ffff::1
+fec0:0:0:ffff::2
+fec0:0:0:ffff::3
+System Default Gateway:
+192.168.1.1
+Available Physical Memory (MB):
+21088.9765625
+PATH Environment Variable:
+C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Users\noah\AppData\Local\Programs\Python\Launcher\;C:\Users\noah\AppData\Local\Microsoft\WindowsApps;C:\Users\noah\AppData\Local\Programs\Microsoft VS Code\bin;c:\Users\noah\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
+Installed Drivers:
+
+DeviceName                                          DriverVersion   Manufacturer
+----------                                          -------------   ------------
+WAN Miniport (Network Monitor)                      10.0.26100.1    Microsoft
+WAN Miniport (IPv6)                                 10.0.26100.1    Microsoft
+WAN Miniport (IP)                                   10.0.26100.1    Microsoft
+WAN Miniport (PPPOE)                                10.0.26100.1    Microsoft
+WAN Miniport (PPTP)                                 10.0.26100.1    Microsoft
+WAN Miniport (L2TP)                                 10.0.26100.1    Microsoft
+WAN Miniport (IKEv2)                                10.0.26100.1    Microsoft
+WAN Miniport (SSTP)                                 10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Local Print Queue                                   10.0.26100.1    Microsoft
+Local Print Queue                                   10.0.26100.1    Microsoft
+WSD Print Device                                    10.0.26100.1150 Canon
+Generic software device                             10.0.26100.1    Canon
+Canon MF632C/634C                                   10.0.26100.1    Microsoft
+Local Print Queue                                   10.0.26100.1    Microsoft
+Microsoft IPP Class Driver                          10.0.26100.4946 Microsoft
+http://www.canon.com                                10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Generic software device                             10.0.26100.1    Microsoft
+Computer Device                                     10.0.26100.1    Microsoft
+Remote Desktop Device Redirector Bus                10.0.26100.1150 Microsoft
+HID Keyboard Device                                 10.0.26100.1882 (Standard keyboards) 
+Logitech G HUB Virtual Keyboard                     2022.3.0.2      (Standard system d...
+Logitech G HUB Virtual Bus Enumerator               2022.3.0.2      (Standard system d...
+Plug and Play Software Device Enumerator            10.0.26100.4202 (Standard system d...
+Microsoft System Management BIOS Driver             10.0.26100.1    (Standard system d...
+NDIS Virtual Network Adapter Enumerator             10.0.26100.1    Microsoft
+NVIDIA Virtual Audio Device (Wave Extensible) (WDM) 4.65.0.3        Microsoft
+Microsoft Basic Render Driver                       10.0.26100.4946 Microsoft
+System Firmware                                     10.0.26100.4768 Microsoft
+Microsoft UEFI-Compliant System                     10.0.26100.4768 Microsoft
+ACPI Fixed Feature Button                           10.0.26100.1150 (Standard system d... 
+Trusted Platform Module 2.0                         10.0.26100.4768 (Standard)
+ACPI Power Button                                   10.0.26100.1150 (Standard system d...
+Intel(R) Power Engine Plug-in                       10.0.26100.4768 Intel Corporation     
+Microsoft Windows Management Interface for ACPI     10.0.26100.1150 Microsoft
+Microsoft Windows Management Interface for ACPI     10.0.26100.1150 Microsoft
+ACPI Sleep Button                                   10.0.26100.1150 (Standard system d... 
+Microsoft Windows Management Interface for ACPI     10.0.26100.1150 Microsoft
+ACPI Wake Alarm                                     10.0.26100.1150 (Standard system d... 
+ACPI Processor Aggregator                           10.0.26100.1150 (Standard system d... 
+Intel Processor                                     10.0.26100.4768 Intel
+Intel Processor                                     10.0.26100.4768 Intel
+Intel Processor                                     10.0.26100.4768 Intel
+Intel Processor                                     10.0.26100.4768 Intel
+Intel Processor                                     10.0.26100.4768 Intel
+Intel Processor                                     10.0.26100.4768 Intel
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Intel(R) Ethernet Connection (7) I219-V             12.19.1.37      Intel
+PCI Device
+SM Bus Controller
+High Definition Audio Device                        10.0.26100.3624 Microsoft
+High Definition Audio Controller                    10.0.26100.4768 Microsoft
+Motherboard resources                               10.0.26100.1150 (Standard system d...
+System timer                                        10.0.26100.1150 (Standard system d... 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+Numeric data processor                              10.0.26100.1150 (Standard system d... 
+Programmable interrupt controller                   10.0.26100.1150 (Standard system d... 
+High precision event timer                          10.0.26100.1150 (Standard system d... 
+Communications Port                                 10.0.26100.1150 (Standard port types) 
+Motherboard resources                               10.0.26100.1150 (Standard system d... 
+PCI standard ISA bridge                             10.0.26100.1150 (Standard system d... 
+Microsoft Wi-Fi Direct Virtual Adapter              10.0.26100.4768 Microsoft
+Microsoft Wi-Fi Direct Virtual Adapter              10.0.26100.4768 Microsoft
+Intel(R) Dual Band Wireless-AC 3168                 19.51.15.3      Intel Corporation     
+PCI-to-PCI Bridge                                   10.0.26100.4768 (Standard system d... 
+Generic IEEE 1667 ACT                               10.0.26100.1    (IEEE 1667 Compati... 
+Microsoft TCG Storage silo                          10.0.26100.1150 Microsoft
+Generic IEEE 1667 Probe Silo                        10.0.26100.1    (IEEE 1667 Compati...
+Disk drive                                          10.0.26100.4768 (Standard disk dri... 
+CD-ROM Drive                                        10.0.26100.1150 (Standard CD-ROM d... 
+Disk drive                                          10.0.26100.4768 (Standard disk dri... 
+Standard SATA AHCI Controller                       10.0.26100.4768 Standard SATA AHCI... 
+Intel(R) Management Engine WMI Provider             2408.5.4.0      Intel
+Intel(R) iCLS Client                                1.71.99.0       Intel
+Intel(R) Dynamic Application Loader Host Interface  1.44.2023.710   Intel
+Intel(R) Management Engine Interface #1             2406.5.5.0      Intel
+PCI standard RAM Controller                         10.0.26100.1150 (Standard system d... 
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+USB Input Device                                    10.0.26100.4768 (Standard system d...
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+HID-compliant consumer control device               10.0.26100.1    Microsoft
+HID Keyboard Device                                 10.0.26100.1882 (Standard keyboards)  
+USB Input Device                                    10.0.26100.4768 (Standard system d... 
+USB Composite Device                                10.0.26100.4768 (Standard USB Host... 
+Generic USB Hub                                     10.0.26100.4768 (Standard USB HUBs)   
+Generic SuperSpeed USB Hub                          10.0.26100.4768 (Standard USB HUBs)   
+Bluetooth LE Generic Attribute Service              10.0.26100.4484 Microsoft
+Bluetooth Low Energy GATT compliant HID device      10.0.26100.4768 Microsoft
+Bluetooth LE Generic Attribute Service              10.0.26100.4484 Microsoft
+Device Information Service                          10.0.26100.4484 Microsoft
+Generic Attribute Profile                           10.0.26100.4484 Microsoft
+Generic Access Profile                              10.0.26100.4484 Microsoft
+Bluetooth LE Device                                 10.0.26100.4484 Microsoft
+Microsoft Bluetooth LE Enumerator                   10.0.26100.4484 Microsoft
+Bluetooth Device (Personal Area Network)            10.0.26100.4061 Microsoft
+Microsoft Bluetooth Enumerator                      10.0.26100.4768 Microsoft
+Bluetooth Device (RFCOMM Protocol TDI)              10.0.26100.4061 Microsoft
+Intel(R) Wireless Bluetooth(R)                      20.100.10.7     Intel Corporation    
+HID-compliant device                                10.0.26100.4768 (Standard system d... 
+Virtual HID Framework (VHF) HID device              10.0.26100.4768 Microsoft
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+LIGHTSPEED Receiver
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+USB Input Device                                    10.0.26100.4768 (Standard system d...
+HID-compliant vendor-defined device                 10.0.26100.4768 (Standard system d... 
+HID-compliant system controller                     10.0.26100.4768 (Standard system d... 
+HID-compliant consumer control device               10.0.26100.1    Microsoft
+HID-compliant mouse                                 10.0.26100.1150 Microsoft
+USB Input Device                                    10.0.26100.4768 (Standard system d... 
+HID Keyboard Device                                 10.0.26100.1882 (Standard keyboards)  
+USB Input Device                                    10.0.26100.4768 (Standard system d... 
+LIGHTSPEED Receiver                                 1.1.73.751      Logitech
+USB Root Hub (USB 3.0)                              10.0.26100.4768 (Standard USB HUBs)   
+USB xHCI Compliant Host Controller                  10.0.26100.4768 Generic USB xHCI H... 
+PCI Data Acquisition and Signal Processing Contr...
+NVIDIA USB Type-C Port Policy Controller            1.52.831.832    NVIDIA
+USB Root Hub (USB 3.0)                              10.0.26100.4768 (Standard USB HUBs)   
+USB xHCI Compliant Host Controller                  10.0.26100.4768 Generic USB xHCI H... 
+Audio Endpoint                                      10.0.26100.1    Microsoft
+NVIDIA High Definition Audio                        1.4.3.2         Microsoft
+High Definition Audio Controller                    10.0.26100.4768 Microsoft
+Generic PnP Monitor                                 10.0.26100.4768 (Standard monitor ...
+NVIDIA GeForce RTX 2070                             32.0.15.7700    NVIDIA
+PCI-to-PCI Bridge                                   10.0.26100.4768 (Standard system d... 
+PCI standard host CPU bridge                        10.0.26100.1150 (Standard system d... 
+PCI Express Root Complex                            10.0.26100.4768 (Standard system d... 
+Microsoft ACPI-Compliant System                     10.0.26100.4768 Microsoft
+ACPI x64-based PC                                   10.0.26100.1    (Standard computers)  
+UMBus Root Bus Enumerator                           10.0.26100.1150 Microsoft
+Microsoft Kernel Debug Network Adapter              10.0.26100.3624 Microsoft
+Microsoft Storage Spaces Controller                 10.0.26100.4946 Microsoft
+Microsoft Virtual Drive Enumerator                  10.0.26100.1591 Microsoft
+Composite Bus Enumerator                            10.0.26100.1150 Microsoft
+Microsoft Hyper-V Virtualization Infrastructure ... 10.0.26100.4768 Microsoft
+OpenVPN Data Channel Offload                        2.5.9.0         OpenVPN, Inc
+TAP-Windows Adapter V9                              9.27.0.0        TAP-Windows Provid...
+Microsoft Hypervisor Service                        10.0.26100.4768 Microsoft
+Microsoft Basic Display Driver                      10.0.26100.4202 (Standard display ... 
+Volume                                              10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Volume                                              10.0.26100.1    Microsoft
+Volume                                              10.0.26100.1    Microsoft
+Volume                                              10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Generic volume shadow copy                          10.0.26100.1    Microsoft
+Volume                                              10.0.26100.1    Microsoft
+Volume Manager                                      10.0.26100.4768 Microsoft
+
+                                                    2:10.0,2:6.3...
+                                                    2:10.0,2:6.3...
+Current Running Tasks:
+
+Name                       Id CPU
+----                       -- ---
+AggregatorHost           7184
+ApplicationFrameHost    10960 1.265625
+backgroundTaskHost       3560 0.390625
+backgroundTaskHost      15428 0.0625
+backgroundTaskHost      17492 0.1875
+backgroundTaskHost      18796 0.453125
+chrome                   3104 0.84375
+chrome                   6632 968.5625
+chrome                   7440 2.140625
+chrome                   8540 21.515625
+chrome                   9784 72.78125
+chrome                  10056 32.046875
+chrome                  10608 25.015625
+chrome                  10784 2.390625
+chrome                  10792 14.84375
+chrome                  12216 425
+chrome                  13676 21.828125
+chrome                  13840 39.140625
+chrome                  14252 7.078125
+chrome                  14344 4.4375
+chrome                  15220 1.203125
+chrome                  16724 12.359375
+chrome                  16800 6.546875
+chrome                  17076 88.5
+chrome                  17344 0.171875
+chrome                  17516 0.484375
+chrome                  17532 2.84375
+chrome                  17592 37.890625
+chrome                  18696 0.375
+chrome                  20912 365.46875
+chrome                  21732 0.046875
+chrome                  21952 0.5
+Code                      584 59.296875
+Code                     7564 102.40625
+Code                    11300 0.078125
+Code                    11800 165.359375
+Code                    13216 35.15625
+Code                    15004 3.953125
+Code                    17464 0.453125
+Code                    18976 1.765625
+Code                    19324 9.546875
+Code                    22044 23.71875
+conhost                  5096 0.453125
+conhost                  5744
+conhost                 13304
+conhost                 15056 0.40625
+conhost                 15340
+conhost                 16676 0.046875
+conhost                 17048
+conhost                 20988 0.03125
+CrossDeviceResume       11028 0.75
+CrossDeviceService      20344 1.734375
+csrss                     820
+csrss                   19384
+ctfmon                  17648 29.84375
+dasHost                  4568
+dasHost                  6124
+dllhost                  3264 0.015625
+dllhost                 15792 0.09375
+dllhost                 17976 0.21875
+dllhost                 19180 0.09375
+dwm                     14484
+explorer                10200 226.390625
+FileCoAuth              22496 5.984375
+FileSyncHelper          14820
+fontdrvhost              1240
+fontdrvhost              6944
+HuntressAgent            2320
+HuntressAgent           17192
+HuntressUpdater         16652
+HuntressUpdater         17028
+Idle                        0
+jhi_service              3948
+Keyboard Chattering Fix 19120 77.734375
+lghub_agent              8340 83.75
+lghub_system_tray       10988 34.875
+lghub_updater            3964
+LockApp                 22272 0.90625
+logi_lamparray_service   3956
+LsaIso                   1068
+lsass                    1076
+Memory Compression       2468
+MpDefenderCoreService    4000
+msedgewebview2            832 0.03125
+msedgewebview2           1368 0.25
+msedgewebview2           2000 0.109375
+msedgewebview2           3080 12.71875
+msedgewebview2           6008 0.03125
+msedgewebview2           7192 2.46875
+msedgewebview2           7308 0.265625
+msedgewebview2           7812 4.90625
+msedgewebview2          10316 0.265625
+msedgewebview2          14512 20.359375
+msedgewebview2          16104 0.078125
+msedgewebview2          16112 0.546875
+msedgewebview2          18216 3.28125
+msedgewebview2          18360 0.90625
+msedgewebview2          18812 0.859375
+msedgewebview2          19652 0.28125
+msedgewebview2          20800 5.28125
+msedgewebview2          21040 2.421875
+msedgewebview2          21796 38.578125
+msedgewebview2          22388 0.734375
+MsMpEng                  4248
+ms-teams                12952 7.03125
+ms-teams                18036 19.96875
+NgcIso                   7068
+NinjaRMMAgent           15332
+NinjaRMMAgentPatcher     4488
+NisSrv                   5020
+njbar                   14592 50.359375
+njdialog                 6716 0.0625
+Notepad                  2680 3.609375
+nvcontainer              4160
+nvcontainer             18720
+nvcontainer             21676 37.015625
+NVDisplay.Container      1772
+NVDisplay.Container      6372
+OfficeClickToRun         3796
+OneDrive                 7876 11.0625
+OneDrive                19816 105.765625
+OneDrive.Sync.Service   21008 1.9375
+openvpn-gui              4516 3.140625
+openvpnserv              4140
+PhoneExperienceHost      7816 3.5
+powershell              18396 1.484375
+powershell              20616 1.34375
+powershell              21668 2.984375
+powershell              21916 0.6875
+powershell              22396 1.140625
+Registry                  160
+Rio                      3880
+Rio                      5668
+RuntimeBroker            9868 4.625
+RuntimeBroker           11764 0.140625
+RuntimeBroker           13464 0.15625
+RuntimeBroker           15432 0.84375
+RuntimeBroker           15548 0.234375
+RuntimeBroker           16340 1.328125
+RuntimeBroker           18908 0.125
+SearchHost              11900 5.03125
+SearchIndexer            4300
+Secure System             116
+SecurityHealthService   11292
+SecurityHealthSystray    8904 0.03125
+services                  732
+ShellExperienceHost      9912 7.390625
+ShellHost               10152 0.3125
+sihost                  19356 14.953125
+smss                      604
+spoolsv                  3384
+StartMenuExperienceHost   292 5.53125
+svchost                   980
+svchost                  1208
+svchost                  1336
+svchost                  1392
+svchost                  1424
+svchost                  1556
+svchost                  1596
+svchost                  1680
+svchost                  1700
+svchost                  1708
+svchost                  1780
+svchost                  1796
+svchost                  1852
+svchost                  1928
+svchost                  2052
+svchost                  2068
+svchost                  2132
+svchost                  2236
+svchost                  2244
+svchost                  2252
+svchost                  2260
+svchost                  2264
+svchost                  2520
+svchost                  2608
+svchost                  2656
+svchost                  2668
+svchost                  2764
+svchost                  2820
+svchost                  2880
+svchost                  2932
+svchost                  2996
+svchost                  3004
+svchost                  3116
+svchost                  3128
+svchost                  3272
+svchost                  3332
+svchost                  3428
+svchost                  3544
+svchost                  3728
+svchost                  3736
+svchost                  3744
+svchost                  3752
+svchost                  3780
+svchost                  3856
+svchost                  4084
+svchost                  4148
+svchost                  4176
+svchost                  4188
+svchost                  4240
+svchost                  4664
+svchost                  6028
+svchost                  6552
+svchost                  6604
+svchost                  6812
+svchost                  6820
+svchost                  7700
+svchost                  8084
+svchost                  8164
+svchost                  8296
+svchost                  8896
+svchost                  8912
+svchost                  8948 1.4375
+svchost                  9000
+svchost                  9056
+svchost                  9204
+svchost                  9304 0.234375
+svchost                  9600
+svchost                 10072 0.1875
+svchost                 10124 3.421875
+svchost                 10280
+svchost                 10852
+svchost                 10952 2.140625
+svchost                 11004
+svchost                 11488
+svchost                 11516
+svchost                 11528
+svchost                 12956
+svchost                 13432
+svchost                 14304
+svchost                 17732 0.296875
+svchost                 17780 0.265625
+svchost                 18372
+svchost                 18456
+svchost                 19328 0.0625
+svchost                 19616
+svchost                 21996 1.484375
+svchost                 22444
+System                      4
+SystemSettings          12400 3.234375
+taskhostw                6072 0.59375
+taskhostw                8012 2.09375
+unsecapp                 1132 0.53125
+UserOOBEBroker           2768 0.0625
+Widgets                  3820 2.703125
+WidgetService            6688 0.5
+wininit                   988
+winlogon                 4956
+wlanext                   580
+WmiPrvSE                 4872
+WmiPrvSE                 9012
+WmiPrvSE                 9060
+WmiPrvSE                19544
+WMIRegistrationService   4256
+WUDFHost                 4264
+
+
+
+TCP/IP Network Connections and Listening Ports:
+
+LocalAddress LocalPort RemoteAddress   RemotePort       State
+------------ --------- -------------   ----------       -----
+::               49679 ::                       0      Listen
+::1              49669 ::                       0      Listen
+::               49668 ::                       0      Listen
+::               49667 ::                       0      Listen
+::               49666 ::                       0      Listen
+::               49665 ::                       0      Listen
+::               49664 ::                       0      Listen
+::1              42050 ::                       0      Listen
+::                 445 ::                       0      Listen
+::                 135 ::                       0      Listen
+0.0.0.0          64227 0.0.0.0                  0       Bound
+0.0.0.0          63921 0.0.0.0                  0       Bound
+0.0.0.0          63642 0.0.0.0                  0       Bound
+0.0.0.0          63049 0.0.0.0                  0       Bound
+0.0.0.0          62774 0.0.0.0                  0       Bound
+0.0.0.0          62362 0.0.0.0                  0       Bound
+0.0.0.0          60518 0.0.0.0                  0       Bound
+0.0.0.0          59947 0.0.0.0                  0       Bound
+0.0.0.0          58048 0.0.0.0                  0       Bound
+0.0.0.0          57990 0.0.0.0                  0       Bound
+0.0.0.0          56828 0.0.0.0                  0       Bound
+0.0.0.0          56825 0.0.0.0                  0       Bound
+0.0.0.0          54846 0.0.0.0                  0       Bound
+0.0.0.0          54765 0.0.0.0                  0       Bound
+0.0.0.0          54595 0.0.0.0                  0       Bound
+0.0.0.0          54499 0.0.0.0                  0       Bound
+0.0.0.0          54498 0.0.0.0                  0       Bound
+0.0.0.0          54496 0.0.0.0                  0       Bound
+0.0.0.0          54495 0.0.0.0                  0       Bound
+0.0.0.0          54494 0.0.0.0                  0       Bound
+0.0.0.0          54493 0.0.0.0                  0       Bound
+0.0.0.0          54492 0.0.0.0                  0       Bound
+0.0.0.0          54489 0.0.0.0                  0       Bound
+0.0.0.0          54451 0.0.0.0                  0       Bound
+0.0.0.0          54447 0.0.0.0                  0       Bound
+0.0.0.0          52808 0.0.0.0                  0       Bound
+0.0.0.0          51908 0.0.0.0                  0       Bound
+0.0.0.0          51907 0.0.0.0                  0       Bound
+0.0.0.0          51591 0.0.0.0                  0       Bound
+0.0.0.0          51567 0.0.0.0                  0       Bound
+0.0.0.0          51209 0.0.0.0                  0       Bound
+0.0.0.0          51204 0.0.0.0                  0       Bound
+0.0.0.0          50993 0.0.0.0                  0       Bound
+0.0.0.0          50973 0.0.0.0                  0       Bound
+0.0.0.0          50695 0.0.0.0                  0       Bound
+0.0.0.0          50479 0.0.0.0                  0       Bound
+0.0.0.0          50478 0.0.0.0                  0       Bound
+0.0.0.0          49249 0.0.0.0                  0       Bound
+192.168.1.51     64227 20.59.87.227           443 Established
+192.168.1.51     63921 34.107.204.85          443 Established
+192.168.1.51     63642 140.82.112.22          443 Established
+192.168.1.51     63049 23.62.106.168          443   CloseWait
+192.168.1.51     62774 52.42.123.128          443 Established
+192.168.1.51     62362 34.107.204.85          443 Established
+192.168.1.51     61973 13.107.5.93            443    TimeWait
+192.168.1.51     60518 20.59.87.227           443 Established
+192.168.1.51     59947 50.19.54.29            443 Established
+192.168.1.51     58048 157.90.91.75           443 Established
+192.168.1.51     56825 24.144.124.112         443 Established
+192.168.1.51     54846 40.71.11.167           443 Established
+192.168.1.51     54765 172.253.132.188       5228 Established
+192.168.1.51     54595 34.36.213.229          443 Established
+192.168.1.51     54499 23.60.131.209           80   CloseWait
+192.168.1.51     54498 23.60.131.209           80   CloseWait
+192.168.1.51     54496 23.199.54.100          443   CloseWait
+192.168.1.51     54495 23.199.54.100          443   CloseWait
+192.168.1.51     54494 23.199.54.44           443   CloseWait
+192.168.1.51     54493 23.199.54.44           443   CloseWait
+192.168.1.51     54492 23.62.106.147          443   CloseWait
+192.168.1.51     54489 44.236.217.245         443 Established
+192.168.1.51     54451 20.59.87.226           443 Established
+192.168.1.51     54447 52.42.123.128          443   CloseWait
+192.168.1.51     52808 52.54.55.164           443 Established
+192.168.1.51     51591 100.28.31.211          443 Established
+192.168.1.51     51567 104.208.16.95          443 Established
+192.168.1.51     51209 52.112.86.215          443 Established
+192.168.1.51     51204 52.112.95.35           443 Established
+192.168.1.51     50993 34.202.147.235         443 Established
+192.168.1.51     50973 52.86.232.158          443 Established
+192.168.1.51     50695 23.199.54.106          443 Established
+192.168.1.51     50479 52.96.156.2            443 Established
+192.168.1.51     50478 52.96.156.2            443 Established
+0.0.0.0          49679 0.0.0.0                  0      Listen
+0.0.0.0          49668 0.0.0.0                  0      Listen
+0.0.0.0          49667 0.0.0.0                  0      Listen
+0.0.0.0          49666 0.0.0.0                  0      Listen
+0.0.0.0          49665 0.0.0.0                  0      Listen
+0.0.0.0          49664 0.0.0.0                  0      Listen
+192.168.1.51     49249 192.168.1.32          8009 Established
+127.0.0.1        45654 0.0.0.0                  0      Listen
+127.0.0.1        24799 0.0.0.0                  0      Listen
+127.0.0.1         9180 0.0.0.0                  0      Listen
+127.0.0.1         9010 0.0.0.0                  0      Listen
+0.0.0.0           5040 0.0.0.0                  0      Listen
+192.168.1.51       139 0.0.0.0                  0      Listen
+0.0.0.0            135 0.0.0.0                  0      Listen
+
+
+
+Script End Date and Time: 09/01/2025 20:51:53
