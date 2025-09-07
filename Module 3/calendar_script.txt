@@ -1,0 +1,98 @@
+# Get current date as starting point
+$startDate = Get-Date
+$logFile = "calendar_output.txt"
+
+# Clear log file if it exists
+if (Test-Path $logFile) {
+    Clear-Content $logFile
+}
+
+# Define colors for each day of the week
+$dayColors = @{
+    0 = "Red"      # Monday
+    1 = "Green"    # Tuesday
+    2 = "Blue"     # Wednesday  
+    3 = "Yellow"   # Thursday
+    4 = "Magenta"  # Friday
+    5 = "Cyan"     # Saturday
+    6 = "White"    # Sunday
+}
+
+# Write header
+Write-Host "30-Day Calendar Starting from $($startDate.ToString('MMMM dd, yyyy'))" -ForegroundColor Gray
+"30-Day Calendar Starting from $($startDate.ToString('MMMM dd, yyyy'))" | Out-File -FilePath $logFile
+"=" * 70 | Out-File -FilePath $logFile -Append
+Write-Host ("=" * 70) -ForegroundColor Gray
+
+# Create calendar header with day names and colors
+Write-Host ""
+"" | Out-File -FilePath $logFile -Append
+
+$dayNames = @("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+$headerLine = ""
+
+for ($i = 0; $i -lt 7; $i++) {
+    Write-Host $dayNames[$i].PadRight(12) -ForegroundColor $dayColors[$i] -NoNewline
+    $headerLine += $dayNames[$i].PadRight(12)
+}
+Write-Host ""
+$headerLine | Out-File -FilePath $logFile -Append
+
+Write-Host ("-" * 70) -ForegroundColor Gray
+"-" * 70 | Out-File -FilePath $logFile -Append
+
+# Calculate starting position based on day of week
+$startDayOfWeek = [int]$startDate.DayOfWeek
+if ($startDayOfWeek -eq 0) { $startDayOfWeek = 6 } else { $startDayOfWeek-- }
+
+# Create calendar grid
+$currentDate = $startDate
+$position = $startDayOfWeek
+$weekLine = @("", "", "", "", "", "", "")
+$logWeekLine = @("", "", "", "", "", "", "")
+
+for ($day = 0; $day -lt 30; $day++) {
+    $dayNumber = $currentDate.Day.ToString().PadLeft(2)
+    
+    # Add day to current position in week
+    $weekLine[$position] = $dayNumber
+    $logWeekLine[$position] = $dayNumber.PadRight(12)
+    
+    # If sunday is reached or it's the last day, print the week
+    if ($position -eq 6 -or $day -eq 29) {
+        # Print colored line to console
+        for ($i = 0; $i -lt 7; $i++) {
+            if ($weekLine[$i] -ne "") {
+                Write-Host $weekLine[$i].PadRight(12) -ForegroundColor $dayColors[$i] -NoNewline
+            } else {
+                Write-Host "".PadRight(12) -NoNewline
+            }
+        }
+        Write-Host ""
+        
+        # Print plain line to log file
+        $logLine = ""
+        for ($i = 0; $i -lt 7; $i++) {
+            $logLine += $logWeekLine[$i]
+        }
+        $logLine | Out-File -FilePath $logFile -Append
+        
+        # Reset for next week
+        $weekLine = @("", "", "", "", "", "", "")
+        $logWeekLine = @("", "", "", "", "", "", "")
+        $position = 0
+    } else {
+        $position++
+    }
+    
+    # Move to next day
+    $currentDate = $currentDate.AddDays(1)
+}
+
+Write-Host ""
+Write-Host "Calendar saved to: $logFile" -ForegroundColor Gray
+Write-Host "Script completed on: $(Get-Date)" -ForegroundColor Gray
+
+"" | Out-File -FilePath $logFile -Append
+"Calendar saved to: $logFile" | Out-File -FilePath $logFile -Append
+"Script completed on: $(Get-Date)" | Out-File -FilePath $logFile -Append
