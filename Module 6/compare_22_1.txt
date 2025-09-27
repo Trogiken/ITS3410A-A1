@@ -1,0 +1,10 @@
+﻿
+InputObject                                SideIndicator
+-----------                                -------------
+System.Diagnostics.Process (RuntimeBroker) =>           
+System.Diagnostics.Process (chrome)        <=           
+System.Diagnostics.Process (chrome)        <=           
+System.Diagnostics.Process (dllhost)       <=           
+System.Diagnostics.Process (Notepad)       <=           
+
+
