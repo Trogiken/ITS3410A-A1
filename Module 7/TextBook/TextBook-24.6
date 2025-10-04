@@ -1,0 +1,38 @@
+24.6 Get the Parent Process of a Process
+Problem
+You want to know the process that launched a given process.
+
+Solution
+Use the Parent property of the Process object returned by the Get-Process cmdlet.
+
+PS > $process = Get-Process -Name Notepad
+PS > $process.Parent
+
+Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
+-------  ------    -----      ----- -----   ------     -- -----------
+    529      31    72196      87928   659     9.86   3376 powershell
+Discussion
+Determining which process launched a given process is normally a more complicated issue than it sounds like it should be.
+
+Windows records the parent process ID when a process is launched, but there’s no guarantee that the parent process didn’t exit after launching the process in question. Since Windows recycles process IDs, this property can sometimes appear to return incorrect results. You can see this for yourself if you use WMI’s process management classes themselves:
+
+PS > $null = Start-Process (Get-Command pwsh).Path -ArgumentList "-Command notepad"
+PS > Get-Process -Name notepad
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+    251      14     3264      15160       0.06  19952   1 notepad
+
+
+PS > (Get-CimInstance Win32_Process -Filter "ProcessId = 19952").ParentProcessId
+50560
+PS > Get-Process -Id 50560
+Get-Process : Cannot find a process with the process identifier 50560.
+In the first line of our example, PowerShell launches Notepad and then exits. Notepad stays running. We can see that the system still knows of Notepad’s original process ID, but that the parent process has exited.
+
+At some point, another process will get process ID 50560, and most scripts will react incorrectly. The important step to getting this correct is ensuring that the parent process started before the process in question (through the StartTime property), but PowerShell handles this for you. If the parent process has exited, the Parent property of the Get-Process output will be empty.
+
+If you still need to access the historical parent process ID, you can use the Win32_​Process CIM instance directly. For more information about working with CIM and WMI, see Recipe 28.1.
+
+See Also
+Recipe 28.1, “Access Windows Management Instrumentation and CIM Data”

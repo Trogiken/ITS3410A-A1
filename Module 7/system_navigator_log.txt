@@ -1,0 +1,78 @@
+=== System Navigator Script Started at 10/04/2025 15:11:37 ===
+[2025-10-04 15:11:37] System Navigator Script initialized
+[2025-10-04 15:11:37] User started interactive session
+[2025-10-04 15:11:37] Starting directory navigation
+[2025-10-04 15:11:37] Current directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:11:37] Displayed 3 items in current directory
+[2025-10-04 15:11:43] User selected option: 1
+[2025-10-04 15:11:43] Screen cleared
+[2025-10-04 15:11:43] Displaying Event Logs information
+[2025-10-04 15:11:44] Successfully displayed 439 event logs
+[2025-10-04 15:11:51] User selected option: 2
+[2025-10-04 15:11:51] Screen cleared
+[2025-10-04 15:11:51] Displaying Processes information
+[2025-10-04 15:11:51] Elevated privileges not available - showing processes without full owner info
+[2025-10-04 15:11:51] Successfully displayed 248 processes (limited owner information)
+[2025-10-04 15:11:54] User selected option: 3
+[2025-10-04 15:11:54] Screen cleared
+[2025-10-04 15:11:55] Starting directory navigation
+[2025-10-04 15:11:55] Current directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:11:55] Displayed 3 items in current directory
+[2025-10-04 15:12:01] User selected option: 4
+[2025-10-04 15:12:01] User chose to quit
+[2025-10-04 15:12:01] === System Navigator Script Ended at 10/04/2025 15:12:01 ===
+[2025-10-04 15:12:01] Total runtime: 0.413189296666667 minutes
+=== System Navigator Script Started at 10/04/2025 15:13:24 ===
+[2025-10-04 15:13:24] System Navigator Script initialized
+[2025-10-04 15:13:24] User started interactive session
+[2025-10-04 15:13:24] Screen cleared
+[2025-10-04 15:13:24] Starting interactive directory navigation
+[2025-10-04 15:13:24] Displayed 3 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:13:33] Navigation choice: 3
+[2025-10-04 15:13:33] Navigated to directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7\TextBook
+[2025-10-04 15:13:33] Displayed 10 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7\TextBook
+[2025-10-04 15:13:45] Navigation choice: ..
+[2025-10-04 15:13:45] Navigated up to parent directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:13:45] Displayed 3 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:13:51] Navigation choice: back
+[2025-10-04 15:13:51] User returned to main menu from directory navigation
+[2025-10-04 15:16:35] User selected option: 4
+[2025-10-04 15:16:35] User chose to quit
+[2025-10-04 15:16:35] === System Navigator Script Ended at 10/04/2025 15:16:35 ===
+[2025-10-04 15:16:35] Total runtime: 3.17154403 minutes
+=== System Navigator Script Started at 10/04/2025 15:16:36 ===
+[2025-10-04 15:16:36] System Navigator Script initialized
+[2025-10-04 15:16:36] User started interactive session
+[2025-10-04 15:16:36] Screen cleared
+[2025-10-04 15:16:36] Starting interactive directory navigation
+[2025-10-04 15:16:36] Displayed 3 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:17:05] Navigation choice: back
+[2025-10-04 15:17:05] User returned to main menu from directory navigation
+[2025-10-04 15:17:07] User selected option: 1
+[2025-10-04 15:17:07] Screen cleared
+[2025-10-04 15:17:07] Displaying Event Logs information
+[2025-10-04 15:17:08] Successfully displayed 439 event logs
+[2025-10-04 15:17:11] User selected option: 2
+[2025-10-04 15:17:11] Screen cleared
+[2025-10-04 15:17:11] Displaying Processes information
+[2025-10-04 15:17:11] Elevated privileges not available - showing processes without full owner info
+[2025-10-04 15:17:11] Successfully displayed 245 processes (limited owner information)
+[2025-10-04 15:17:14] User selected option: 3
+[2025-10-04 15:17:14] Screen cleared
+[2025-10-04 15:17:14] Screen cleared
+[2025-10-04 15:17:14] Starting interactive directory navigation
+[2025-10-04 15:17:14] Displayed 3 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 7
+[2025-10-04 15:17:18] Navigation choice: ..
+[2025-10-04 15:17:18] Navigated up to parent directory: C:\Users\noah\VsCode\ITS3410A-A1
+[2025-10-04 15:17:18] Displayed 9 items in directory: C:\Users\noah\VsCode\ITS3410A-A1
+[2025-10-04 15:17:28] Navigation choice: 2
+[2025-10-04 15:17:28] Navigated to directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 2
+[2025-10-04 15:17:28] Displayed 5 items in directory: C:\Users\noah\VsCode\ITS3410A-A1\Module 2
+[2025-10-04 15:17:35] Navigation choice: back
+[2025-10-04 15:17:35] User returned to main menu from directory navigation
+[2025-10-04 15:17:36] User selected option: quit
+[2025-10-04 15:17:36] Invalid selection: quit
+[2025-10-04 15:17:40] User selected option: 4
+[2025-10-04 15:17:40] User chose to quit
+[2025-10-04 15:17:40] === System Navigator Script Ended at 10/04/2025 15:17:40 ===
+[2025-10-04 15:17:40] Total runtime: 1.06569796 minutes

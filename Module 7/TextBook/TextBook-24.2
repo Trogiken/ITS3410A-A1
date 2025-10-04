@@ -1,0 +1,25 @@
+24.2 Launch the Application Associated with a Document
+Problem
+You want to launch the application associated with a document or with another shell association.
+
+Solution
+Use the Start-Process cmdlet (or its start alias) to launch the document or location:
+
+PS > Start-Process https://devblogs.microsoft.com/powershell/
+PS > start https://www.bing.com
+PS > start c:\temp\output.csv
+To launch one of the predefined actions for a document (usually exposed through its right-click menu), use the -Verb parameter:
+
+start c:\documents\MyDoc.docx -Verb Print
+Discussion
+The Start-Process cmdlet gives you a great deal of flexibility over how you launch an application. In addition to launching applications, it also gives you access to Windows shell associations: functionality associated with URLs and documents.
+
+Windows defines many shell associations: for HTTP websites, FTP locations, and even Explorer-specific behavior. For example, to launch the All Tasks view of the Windows control panel:
+
+start 'shell:::{ED7BA470-8E54-465E-825C-99712043E01C}'
+If the document you’re launching defines an action (such as Edit or Print), you can use the -Verb parameter to invoke that action.
+
+For more information about the Start-Process cmdlet and launching system processes, see Recipe 24.3.
+
+See Also
+Recipe 24.3, “Launch a Process”

@@ -1,0 +1,67 @@
+24.1 List Currently Running Processes
+Problem
+You want to see which processes are running on the system.
+
+Solution
+To retrieve the list of currently running processes, use the Get-Process cmdlet:
+
+PS > Get-Process
+
+Handles  NPM(K)  PM(K)  WS(K)  VM(M)  CPU(s)     Id ProcessName
+-------  ------  -----  -----  -----  ------     -- -----------
+    274       6   1328   3940     33           1084 alg
+     85       4   3816   6656     57    5.67   3460 AutoHotkey
+     50       2   2292   1980     14  384.25   1560 BrmfRsmg
+     71       3   2520   4680     35    0.42   2592 cmd
+    946       7   3676   6204     32            848 csrss
+     84       4    732   2248     22           3144 csrss
+     68       4    936   3364     30    0.38   3904 ctfmon
+    243       7   3648   9324     48    2.02   2892 Ditto
+(...)
+Discussion
+The Get-Process cmdlet retrieves information about all processes running on the system. Because these are rich .NET objects (of the type System.Diagnostics.​Pro⁠cess), advanced filters and operations are easier than ever before.
+
+For example, to find all processes using more than 100 MB of memory:
+
+PS > Get-Process | Where-Object { $_.WorkingSet -gt 100mb }
+
+Handles  NPM(K)  PM(K)  WS(K)  VM(M)  CPU(s)    Id ProcessName
+-------  ------  -----  -----  -----  ------    -- -----------
+   1458      29  83468 105824    273  323.80  3992 BigBloatedApp
+To group processes by company:
+
+PS > Get-Process | Group-Object Company
+
+Count Name                      Group
+----- ----                      -----
+   39                           {alg, csrss, csrss, dllhost...}
+    4                           {AutoHotkey, Ditto, gnuserv, mafwTray}
+    1 Brother Industries, Ltd.  {BrmfRsmg}
+   19 Microsoft Corporation     {cmd, ctfmon, EXCEL, explorer...}
+    1 Free Software Foundation  {emacs}
+    1 Microsoft (R) Corporation {FwcMgmt}
+(...)
+Or perhaps to sort by start time (with the most recent first):
+
+PS > Get-Process | Sort-Object -Descending StartTime | Select-Object -First 10
+
+Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id ProcessName
+-------  ------    -----      ----- -----   ------     -- -----------
+   1810      39    53616      33964   193   318.02   1452 iTunes
+    675       6    41472      50180   146    49.36    296 powershell
+   1240      35    48220      58860   316   167.58   4012 OUTLOOK
+    305       8     5736       2460   105    21.22   3384 WindowsSearch...
+    464       7    29704      30920   153     6.00   3680 powershell
+   1458      29    83468     105824   273   324.22   3992 iexplore
+    478       6    24620      23688   143    17.83   3548 powershell
+    222       8     8532      19084   144    20.69   3924 EXCEL
+     14       2      396       1600    15     0.06   2900 logon.scr
+    544      18    21336      50216   294   180.72   2660 WINWORD
+These advanced tasks become incredibly simple due to the rich amount of information that PowerShell returns for each process. For more information about the Get-Process cmdlet, type Get-Help Get-Process. For more information about filtering, grouping, and sorting in PowerShell commands, see Recipe 2.2.
+
+For more information about working with classes from the .NET Framework, see Recipe 3.8.
+
+See Also
+Recipe 2.2, “Filter Items in a List or Command Output”
+
+Recipe 3.8, “Work with .NET Objects”

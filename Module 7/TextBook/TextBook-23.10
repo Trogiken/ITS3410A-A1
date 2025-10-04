@@ -1,0 +1,39 @@
+23.10 Clear or Maintain an Event Log
+Problem
+You want to clear an event log or manage its retention policy.
+
+Solution
+To clear an event log, use the wevtutil.exe application. For example, to clear the Microsoft Office Alerts log:
+
+wevtutil cl 'OAlerts'
+Similarly, to configure log properties (such as increasing retention limits):
+
+wevtutil sl Microsoft-Windows-PowerShell/Operational /ms:$(200mb)
+Discussion
+The default policies of most event logs are for the most part sensible. However, event logs you will likely want to modify are your security event logs: the operating system defaults for these of a few tens of megabytes is unlikely going to help you in the case of a security incident.
+
+PowerShell includes cmdlets for managing the older classic event logs (Application, Security, etc.), but you’ll need to use wevtutil.exe for modern event logs.
+
+For permanent policy changes to classic event logs, use the Limit-EventLog cmdlet. This cmdlet lets you limit the log size, maximum event age, and overwrite behavior for the event log that you apply it to. While the size and age limits are fairly self-describing parameters, configuring the overflow behavior is more subtle.
+
+The -OverflowAction parameter supports one of three options. Each describes a different strategy for Windows to take when writing to a full event log:
+
+DoNotOverwrite
+Discards new entries.
+
+OverwriteAsNeeded
+Overwrites the oldest entry.
+
+OverwriteOlder
+Overwrites entries older than the age limit specified for the event log (via the RetentionDays parameter). If there are no old entries to overwrite, Windows discards the new entry.
+
+To clear a classic event log entirely, use the Clear-EventLog cmdlet. For modern event logs, use the cl parameter of wevtutil.exe. If you want to save the contents of the event log before clearing it, see Recipe 23.6.
+
+If you want to remove an event log entirely, see Recipe 23.7.
+
+See Also
+Recipe 3.8, “Work with .NET Objects”
+
+Recipe 23.6, “Back Up an Event Log”
+
+Recipe 23.7, “Create or Remove an Event Log”

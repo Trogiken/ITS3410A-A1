@@ -1,0 +1,44 @@
+23.1 List All Event Logs
+Problem
+You want to determine which event logs exist on a system.
+
+Solution
+Use the Get-WinEvent cmdlet. In addition to classic event logs, the Get-WinEvent cmdlet supports Application and Services event logs:
+
+PS > Get-WinEvent -ListLog * | Select LogName,RecordCount
+
+LogName                                                        RecordCount
+-------                                                        -----------
+Application                                                           1933
+DFS Replication                                                          0
+HardwareEvents                                                           0
+Internet Explorer                                                        0
+Key Management Service                                                   0
+Media Center                                                             0
+OAlerts                                                                  2
+ScriptEvents                                                           424
+Security                                                             39005
+System                                                               55957
+Windows PowerShell                                                    2865
+ForwardedEvents
+Microsoft-Windows-Backup                                                 0
+Microsoft-Windows-Bits-Client/Ana ...
+Microsoft-Windows-Bits-Client/Oper...                                 2232
+Microsoft-Windows-Bluetooth-MTPEnu...                                    0
+Microsoft-Windows-CAPI2/Operational
+(...)
+To browse event logs using the Windows Event Viewer graphical user interface, use the Show-EventLog cmdlet.
+
+Discussion
+The -List parameter of the Get-WinEvent cmdlet generates a list of the event logs registered on the system. In addition to supporting event logs on the current system, it also lets you supply the -ComputerName parameter to interact with event logs on a remote system.
+
+Once you’ve determined which event log you’re interested in, you can use the Get-WinEvent cmdlet to search, filter, and retrieve specific entries from those logs. For information on how to retrieve event log entries, see Recipes 23.2, 23.3, and 23.4.
+
+For more information about the Get-WinEvent cmdlet, type Get-Help Get-WinEvent.
+
+See Also
+Recipe 23.2, “Get the Oldest Entries from an Event Log”
+
+Recipe 23.3, “Find Event Log Entries with Specific Text”
+
+Recipe 23.4, “Retrieve and Filter Event Log Entries”

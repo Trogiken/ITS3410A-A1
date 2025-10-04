@@ -1,0 +1,21 @@
+24.5 Get the Owner of a Process
+Problem
+You want to know the user account that launched a given process.
+
+Solution
+Use the -IncludeUserName parameter of the Get-Process cmdlet.
+
+PS > Get-Process -Name Notepad -IncludeUserName
+
+Handles      WS(K)   CPU(s)     Id UserName               ProcessName
+-------      -----   ------     -- --------               -----------
+    245      15128     0.08  15084 LEE-DESK\lee           notepad
+Discussion
+While the output returned by the Get-Process command contains a lot of information, it doesn’t return the owner of a process by default. For this, we can use the -IncludeUserName parameter.
+
+There is one major caveat, however. On Windows, viewing the owner of a process (when that process isn’t your own) is a feature restricted to Administrators. Because of that, if you try to use this parameter as a non-administrator, PowerShell will generate an error.
+
+While there are alternative non-administrative ways to find out the user account that launched a given process (such as through WMI or tasklist.exe), they all return blank information for processes that aren’t your own if you try to run them as a non-administrator.
+
+See Also
+Recipe 28.3, “Invoke a Method on a WMI Instance or Class”

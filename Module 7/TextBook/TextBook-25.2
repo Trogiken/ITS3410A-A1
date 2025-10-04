@@ -1,0 +1,26 @@
+25.2 Manage a Running Service
+Problem
+You want to manage a running service.
+
+Solution
+To stop a service, use the Stop-Service cmdlet:
+
+PS > Stop-Service AudioSrv -WhatIf
+What if: Performing operation "Stop-Service" on Target "Windows Audio
+(AudioSrv)".
+Likewise, use the Suspend-Service, Restart-Service, and Resume-Service cmdlets to suspend, restart, and resume services, respectively.
+
+Discussion
+The Stop-Service cmdlet lets you stop a service either by name or display name.
+
+For more information about the Stop-Service cmdlet, type Get-Help Stop-Service. If you want to suspend, restart, or resume a service, see the help for the Suspend-Service, Restart-Service, and Resume-Service cmdlets, respectively.
+
+NOTE
+Notice that the Solution uses the -WhatIf flag on the Stop-Service cmdlet. This parameter lets you see what would happen if you were to run the command but doesn’t actually perform the action.
+
+To configure a service (for example, its description or startup type), see Recipe 25.3. In addition to letting you configure a service, the Set-Service cmdlet described in that recipe also lets you stop a service on a remote computer.
+
+See Also
+Recipe 25.3, “Configure a Service”
+
+Chapter 28

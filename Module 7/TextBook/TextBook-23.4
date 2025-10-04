@@ -1,0 +1,82 @@
+23.4 Retrieve and Filter Event Log Entries
+Problem
+You want to retrieve a specific event log entry or filter by advanced search criteria.
+
+Solution
+To retrieve a specific event log entry, use the Get-WinEvent cmdlet to retrieve the entries in the event log, and then pipe them to the Where-Object cmdlet to filter them to the one you’re looking for:
+
+PS > Get-WinEvent Microsoft-Windows-PowerShell/Operational |
+    Where-Object { $_.Properties[2].Value -match "Invoke-WebRequest" }
+
+   ProviderName: Microsoft-Windows-PowerShell
+
+TimeCreated                      Id LevelDisplayName Message
+-----------                      -- ---------------- -------
+12/18/2020 3:14:17 PM          4104 Warning          Creating Scriptblo...
+12/18/2020 3:14:17 PM          4104 Warning          Creating Scriptblo...
+12/18/2020 3:14:05 PM          4104 Warning          Creating Scriptblo...
+12/18/2020 3:14:05 PM          4104 Warning          Creating Scriptblo...
+For more advanced (or performance-sensitive) queries, use the -FilterXml, the -FilterHashtable, or the -FilterXPath parameters of the Get-WinEvent cmdlet:
+
+Get-WinEvent -LogName "System" -FilterXPath "*[System[EventRecordID = 2920]]"
+Discussion
+If you’ve listed the items in an event log or searched it for entries that have a message with specific text, you often want to get more details about a specific event log entry.
+
+Since the Get-WinEvent cmdlet retrieves rich objects that represent event log entries, you can pipe them to the Where-Object cmdlet for equally rich filtering.
+
+By default, PowerShell’s default table formatting displays a summary of event log entries. If you’re retrieving a specific entry, however, you are probably interested in seeing more details about the entry. In this case, use the Format-List cmdlet to format these entries in a more detailed list view.
+
+While the Where-Object cmdlet works well for simple (or one-off) tasks, the Get-WinEvent cmdlet offers three parameters that can make your event log searches both more powerful and more efficient.
+
+Efficiently processing simple queries
+If you have a simple event log query, you can use the -FilterHashtable parameter of the Get-WinEvent cmdlet to filter the event log very efficiently.
+
+The hashtable that you supply to this parameter lets you filter on LogName, ProviderName, Path, Keywords, ID, Level, StartTime, EndTime, and UserID. This can replace many Where-Object style filtering operations. This example retrieves all critical and error events in the System event log:
+
+Get-WinEvent -FilterHashtable @{ LogName = "System"; Level = 1,2 }
+Automating GUI-generated searches
+When you’re reviewing an event log, the Windows Event Viewer offers a Filter Current Log action on the righthand side. This interface lets you select data ranges, event severity, keywords, task categories, and more. After customizing a filter, you can click the XML tab to see an XML representation of your query. You can copy and paste that XML directly into a here string in a script, and then pass it to the -FilterXml parameter of the Get-WinEvent cmdlet:
+
+## Gets all Critical and Error events from the last 24 hours
+$xml = @'
+<QueryList>
+  <Query Id="0" Path="System">
+    <Select Path="System">
+        *[System[(Level=1  or Level=2) and
+            TimeCreated[timediff(@SystemTime) &lt;= 86400000]]]
+    </Select>
+  </Query>
+</QueryList>
+'@
+
+Get-WinEvent -FilterXml $xml
+Performing complex event analysis and correlation
+Under the covers, event logs store their event information in an XML format. In addition to the -FilterHashtable and -FilterXml parameters, the Get-WinEvent cmdlet lets you filter event logs with a subset of the standard XPath XML querying language. XPath lets your filters describe complex hierarchical queries, value ranges, and more.
+
+NOTE
+Like regular expressions, the XPath query language is by no means simple or easy to understand. This parameter can help if you already have some degree of knowledge or comfort in XPath, but don’t let it intimidate or frustrate you. There is always more than one way to do it.
+
+While the XPath querying language is powerful, the type of rules you can express ultimately depend on what is contained in the XML of the actual events. To see what can be contained in the XML of an event, search MSDN for “Windows ‘event schema.’” The online reference is useful, but actual events tend to contain an extremely small subset of the supported XML nodes. Because of that, you might have more success reviewing the XML of events that interest you and forming XPath queries based on those. Here are some example queries that build on the -FilterXPath parameter:
+
+## Search by Event ID
+Get-WinEvent -LogName "System" -FilterXPath "*[System[(EventID=1)]]"
+
+## Search for events associated with a given Process ID
+Get-WinEvent -LogName "System" -FilterXPath "*[System/Execution[@ProcessID=428]]"
+
+## Search for events that have 'Volume Shadow Copy' as one of the
+## replacement strings
+Get-WinEvent -LogName "System" -FilterXPath `
+    "*[EventData[Data = 'Volume Shadow Copy']]"
+
+## Search for Windows Installer Events associated with a given KB
+$query = "*[UserData/CbsPackageInitiateChanges[PackageIdentifier = 'KB936330']]"
+Get-WinEvent -LogName "System" -FilterXPath $query
+While the richness of the XPath filtering language is extremely powerful, one painful absence is the inability to use wildcards to search within strings. If you need to search within strings, you’ll need to use the Where-Object cmdlet, as shown in Recipe 23.3.
+
+See Also
+Recipe 2.2, “Filter Items in a List or Command Output”
+
+Recipe 23.3, “Find Event Log Entries with Specific Text”
+
+Appendix C, XPath Quick Reference

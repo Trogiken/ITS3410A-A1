@@ -1,0 +1,78 @@
+25.1 List All Running Services
+Problem
+You want to see which services are running on the system.
+
+Solution
+To list all running services, use the Get-Service cmdlet:
+
+PS > Get-Service
+
+Status   Name                DisplayName
+------   ----                -----------
+Running  ADAM_Test           Test
+Stopped  Alerter             Alerter
+Running  ALG                 Application Layer Gateway Service
+Stopped  AppMgmt             Application Management
+Stopped  aspnet_state        ASP.NET State Service
+Running  AudioSrv            Windows Audio
+Running  BITS                Background Intelligent Transfer Ser...
+Running  Browser             Computer Browser
+(...)
+Discussion
+The Get-Service cmdlet retrieves information about all services running on the system. Because these are rich .NET objects (of the type System.ServiceProcess.​Serv⁠iceController), you can apply advanced filters and operations to make managing services straightforward.
+
+For example, to find all running services:
+
+PS > Get-Service | Where-Object { $_.Status -eq "Running" }
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  ADAM_Test          Test
+Running  ALG                Application Layer Gateway Service
+Running  AudioSrv           Windows Audio
+Running  BITS               Background Intelligent Transfer Ser...
+Running  Browser            Computer Browser
+Running  COMSysApp          COM+ System Application
+Running  CryptSvc           Cryptographic Services
+Or, to sort services by the number of services that depend on them:
+
+PS > Get-Service | Sort-Object -Descending { $_.DependentServices.Count }
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  RpcSs              Remote Procedure Call (RPC)
+Running  PlugPlay           Plug and Play
+Running  lanmanworkstation  Workstation
+Running  SSDPSRV            SSDP Discovery Service
+Running  TapiSrv            Telephony
+(...)
+Since PowerShell returns full-fidelity .NET objects that represent system services, these tasks and more become incredibly simple due to the rich amount of information that PowerShell returns for each service. For more information about the Get-Service cmdlet, type Get-Help Get-Service. For more information about filtering, grouping, and sorting in PowerShell commands, see Recipe 2.2.
+
+NOTE
+The Get-Service cmdlet displays most (but not all) information about running services. For additional information (such as the service’s process ID), use the Get-CimInstance cmdlet:
+
+$service = Get-CimInstance Win32_Service |
+    Where-Object { $_.Name -eq "AudioSrv" }
+$service.ProcessID
+In addition to supporting services on the local machine, the Get-Service cmdlet lets you retrieve and manage services on a remote machine as well:
+
+PS > Get-Service -Computer <Computer> |
+    Sort-Object -Descending { $_.DependentServices.Count }
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  RpcEptMapper       RPC Endpoint Mapper
+Running  DcomLaunch         DCOM Server Process Launcher
+Running  RpcSs              Remote Procedure Call (RPC)
+Running  PlugPlay           Plug and Play
+Running  nsi                Network Store Interface Service
+Running  SamSs              Security Accounts Manager
+(...)
+For more information about working with classes from the .NET Framework, see Recipe 3.8. For more information about working with the Get-CimInstance cmdlet, see Chapter 28.
+
+See Also
+Recipe 2.2, “Filter Items in a List or Command Output”
+
+Recipe 3.8, “Work with .NET Objects”
+
+Chapter 28
