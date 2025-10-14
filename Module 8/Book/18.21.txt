@@ -1,0 +1,29 @@
+18.21 Get the Cryptographic Hash of a File
+Problem
+You want to validate the cryptographic (MD5, SHA1, SHA2) hash of a file.
+
+Solution
+Use the Get-FileHash cmdlet:
+
+$url = "https://github.com/PowerShell/PowerShell/releases/download/" +
+    "v7.1.3/powershell-7.1.3-linux-arm64.tar.gz"
+Invoke-WebRequest $url -OutFile powershell-7.1.3-linux-arm64.tar.gz
+PS > Get-FileHash .\powershell-7.1.3-linux-arm64.tar.gz | Format-List
+
+Algorithm : SHA256
+Hash      : B4ECB166EBBD7232CDF2ED3CC84D90FF1A01E62F5307EB58868697CA6CB3B4A2
+Path      : C:\temp\powershell-7.1.3-linux-arm64.tar.gz
+To get the cryptographic hash of a string or other raw binary content, use the -InputStream parameter:
+
+$bytes = [Text.Encoding]::Unicode.GetBytes("My future prediction")
+Get-FileHash -InputStream ([IO.MemoryStream] $bytes)
+Discussion
+File hashes provide a useful way to check for damage or modification to a file. A digital hash acts like the fingerprint of a file and detects even minor modifications. If the content of a file changes, then so does its hash. Many online download services provide the hash of a file on that file’s download page so you can determine whether the transfer somehow corrupted the file (see Figure 18-5).
+
+
+Figure 18-5. File hashes as a verification mechanism
+There are three common ways to generate the hash of a file: MD5, SHA1, and SHA256. The most common is MD5, and the next most common is SHA1. While popular, these hash types can be trusted to detect only accidental file modification. They can be fooled if somebody wants to tamper with the file without changing its hash. The SHA256 algorithm can be used to protect against even intentional file tampering.
+
+The Get-FileHash cmdlet lets you determine the hash of a file (or of multiple files if provided by the pipeline).
+
+To efficiently record and compare file hashes for large sets of files, see Recipe 18.22.

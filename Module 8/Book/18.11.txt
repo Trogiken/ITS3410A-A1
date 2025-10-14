@@ -1,0 +1,17 @@
+18.11 Start a Process as Another User
+Problem
+You want to launch an application under credentials other than your own.
+
+Solution
+Use the -Credential parameter of the Start-Process cmdlet.
+
+$path = (Get-Command powershell.exe).Path
+Start-Process -Path $path -Credential (Get-Credential) -WorkingDirectory c:\
+Discussion
+In early editions of PowerShell, starting a process as another user used to be a complicated task. Fortunately, however, PowerShell now includes this functionality by default through the Start-Process cmdlet.
+
+The -Path parameter to Start-Process requires that you specify the full path to the executable, and not just its name. As the Solution demonstrates, you can use the Get-Command cmdlet to quickly determine the full path to the command you wish to launch.
+
+One subtlety to keep in mind when you start a process as another user is that PowerShell by default tries to launch the new process using your current working directory as its active working directory. If your current working directory is your personal documents directory, the other user account won’t have access to this directory and PowerShell will generate an error. To avoid this issue, use the -WorkingDirectory parameter to specify a working directory (such as C:\) that the new user does have access to.
+
+For a neat trick that lets you invoke PowerShell commands in an elevated session and easily interact with the results, see Recipe 18.12.

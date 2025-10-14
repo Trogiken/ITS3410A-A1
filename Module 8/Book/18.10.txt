@@ -1,0 +1,36 @@
+18.10 Securely Request Usernames and Passwords
+Problem
+Your script requires that users provide it with a username and password, but you want to do this as securely as possible.
+
+Solution
+To request a credential from the user, use the Get-Credential cmdlet:
+
+$credential = Get-Credential
+Discussion
+The Get-Credential cmdlet reads credentials from the user as securely as possible and ensures that the user’s password remains highly protected the entire time. For an example of using the Get-Credential cmdlet effectively in a script, see Recipe 18.11.
+
+Once you have the username and password, you can pass that information around to any other command that accepts a PowerShell credential object without worrying about disclosing sensitive information. If a command doesn’t accept a PowerShell credential object (but does support a SecureString for its sensitive information), the resulting PsCredential object provides a Username property that returns the username in the credential and a Password property that returns a SecureString containing the user’s password.
+
+Unfortunately, not everything that requires credentials can accept either a PowerShell credential or SecureString. If you need to provide a credential to one of these commands or API calls, the PsCredential object provides a GetNetworkCredential() method to convert the PowerShell credential to a less secure NetworkCredential object. Once you’ve converted the credential to a NetworkCredential, the UserName and Password properties provide unencrypted access to the username and password from the original credential. Many network-related classes in the .NET Framework support the NetworkCredential class directly.
+
+NOTE
+The NetworkCredential class is less secure than the PsCredential class because it stores the user’s password in plain text. For more information about the security implications of storing sensitive information in plain text, see Recipe 18.9.
+
+If a frequently run script requires credentials, you might consider caching those credentials in memory to improve the usability of that script. For example, in the region of the script that calls the Get-Credential cmdlet, you can instead use the techniques shown by Example 18-3.
+
+Example 18-3. Caching credentials in memory to improve usability
+$credential = $null
+if(Test-Path Variable:\Lee.Holmes.CommonScript.CachedCredential)
+{
+    $credential = ${GLOBAL:Lee.Holmes.CommonScript.CachedCredential}
+}
+
+${GLOBAL:Lee.Holmes.CommonScript.CachedCredential} =
+   Get-Credential $credential
+
+$credential = ${GLOBAL:Lee.Holmes.CommonScript.CachedCredential}
+The script prompts the user for credentials the first time it’s called but uses the cached credentials for subsequent calls. If your command is part of a PowerShell module, you can avoid storing the information in a global variable. For more information about this technique, see Recipe 11.7.
+
+To cache these credentials on disk (to support unattended operations), see Recipe 18.13.
+
+For more information about the Get-Credential cmdlet, type Get-Help Get-Credential.

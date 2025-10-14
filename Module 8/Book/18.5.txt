@@ -1,0 +1,40 @@
+18.5 Create a Self-Signed Certificate
+Problem
+You want to create a Code Signing, Document Encryption, or SSL certificate for testing purposes.
+
+Solution
+Use the New-SelfSignedCertificate cmdlet.
+
+To create a certificate suitable for use with PowerShell Script Signing:
+
+## Generate the self-signed certificate (requires an administrative console)
+New-SelfSignedCertificate -DnsName 'guide@leeholmes.com' -Type CodeSigningCert
+$cert = dir cert:\LocalMachine\My -DnsName 'guide@leeholmes.com' -CodeSign
+
+## Make it trusted on this machine
+$caCert = Get-ChildItem cert:\LocalMachine\CA -DnsName 'guide@leeholmes.com'
+$caCert | Move-Item -Destination Cert:\LocalMachine\Root
+
+## Sign the file
+Set-AuthenticodeSignature .\SignedScript.ps1 $cert
+To create a certificate suitable for use with the Cryptographic Message Syntax (CMS) cmdlets:
+
+## Generate the self-signed document encryption certificate (requires an
+## administrative console)
+New-SelfSignedCertificate -DnsName 'guide@leeholmes.com'
+    -Type DocumentEncryptionCertLegacyCsp
+$cert = Get-ChildItem cert:\localmachine\my -DocumentEncryptionCert
+
+## Encrypt the message
+"Hello World" | Protect-CmsMessage -To $cert
+Discussion
+It’s possible to benefit from the tamper-protection features of signed scripts without having to pay for an official code-signing certificate. You do this by creating a self-signed certificate. Scripts signed with a self-signed certificate will not be recognized as valid on other computers, but you can still sign and use them on your own computer.
+
+When New-SelfSignedCertificate runs, it by default generates two certificates: a test issuing Certificate Authority and a certificate (your signing certificate) generated from it. When Windows validates digital signatures, the issuing Certificate Authority (or one of its issuers) must be present in the “Trusted Root CA” location in the certificate store. So, to make our certificate trusted on our machine, we move our test Certificate Authority into the Trusted Root store.
+
+NOTE
+If you wish to protect your certificate with a password or biometric proof, you can use the -KeyProtection parameter of New-SelfSignedCertificate. This will prevent other applications from using your key on your behalf.
+
+We use a very similar process to generate Document Encryption certificates. Since Document Encryption certificates don’t need to come from a trusted root authority, we can skip the step that makes it trusted on our machine.
+
+For more information about running scripts, see Recipe 1.2.

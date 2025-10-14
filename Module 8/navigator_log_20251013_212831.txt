@@ -1,0 +1,14 @@
+[2025-10-13 21:28:31] Navigator started
+[2025-10-13 21:29:54] Failed to set start location to ls: Cannot find path 'C:\Users\noah\Repos\ITS3410A-A1\ls' because it does not exist.
+[2025-10-13 21:30:06] Input: ls
+[2025-10-13 21:30:07] Listed contents of C:\Users\noah\Repos\ITS3410A-A1
+[2025-10-13 21:30:27] Input: cd 
+[2025-10-13 21:30:35] Input: cd 'Module 6'
+[2025-10-13 21:30:35] ERROR changing to 'Module 6': Cannot find path 'C:\Users\noah\Repos\ITS3410A-A1\'Module 6'' because it does not exist.
+[2025-10-13 21:30:42] Input: cd '.\Module 6'
+[2025-10-13 21:30:42] ERROR changing to '.\Module 6': Cannot find path 'C:\Users\noah\Repos\ITS3410A-A1\'.\Module 6'' because it does not exist.
+[2025-10-13 21:30:54] Input: cd Module 6
+[2025-10-13 21:30:54] Changed location to Module 6
+[2025-10-13 21:31:00] Input: pwd
+[2025-10-13 21:31:08] Input: exit
+[2025-10-13 21:31:08] Exit navigator

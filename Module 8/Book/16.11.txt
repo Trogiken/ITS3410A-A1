@@ -1,0 +1,26 @@
+16.11 Determine PowerShell Version Information
+Problem
+You want information about the current PowerShell version, .NET CLR (Common Language Runtime) version, compatible PowerShell versions, and more.
+
+Solution
+Access the $PSVersionTable automatic variable:
+
+PS > $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      7.1.0
+PSEdition                      Core
+GitCommitId                    7.1.0
+OS                             Linux 4.19.128-microsoft-standard #1 SMP
+Platform                       Unix
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+Discussion
+The $PSVersionTable automatic variable holds version information for all of PowerShell’s components: the PowerShell version, its edition (Core or Desktop), the operating system it’s running on (including Mac and Linux!), and more.
+
+This technique isn’t completely sufficient for writing scripts that work in all versions of PowerShell, however. If your script uses language features introduced by newer versions of PowerShell (such as new keywords), the script will fail to load in earlier versions.
+
+If the ability to run your script in multiple versions of PowerShell is a strong requirement, the best approach is to simply write a script that works in the oldest version of PowerShell that you need to support. It will automatically work in newer versions.

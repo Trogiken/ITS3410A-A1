@@ -1,0 +1,51 @@
+15.1 Determine the Status of the Last Command
+Problem
+You want to get status information about the last command you executed, such as whether it succeeded.
+
+Solution
+Use one of the two variables PowerShell provides to determine the status of the last command you executed: the $lastExitCode variable and the $? variable.
+
+$lastExitCode
+A number that represents the exit code/error level of the last script or application that exited
+
+$? (pronounced “dollar hook”)
+A boolean value that represents the success or failure of the last command
+
+Discussion
+The $lastExitCode PowerShell variable is similar to the %errorlevel% variable in DOS. It holds the exit code of the last application to exit. This lets you continue to interact with traditional executables (such as ping, findstr, and choice) that use exit codes as a primary communication mechanism. PowerShell also extends the meaning of this variable to include the exit codes of scripts, which can set their status using the exit statement. Example 15-1 demonstrates this interaction.
+
+Example 15-1. Interacting with the $lastExitCode and $? variables
+PS > ping localhost
+
+Pinging MyComputer [127.0.0.1] with 32 bytes of data:
+
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+
+Ping statistics for 127.0.0.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milliseconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+PS > $?
+True
+PS > $lastExitCode
+0
+PS > ping missing-host
+Ping request could not find host missing-host. Please check the name and try again.
+PS > $?
+False
+PS > $lastExitCode
+1
+The $? variable describes the exit status of the last application in a more general manner. PowerShell sets this variable to False on error conditions such as the following:
+
+An application exits with a nonzero exit code.
+
+A cmdlet or script writes anything to its error stream.
+
+A cmdlet or script encounters a terminating error or exception.
+
+For commands that do not indicate an error condition, PowerShell sets the $? variable to True.
+
+If you wish to chain together multiple commands based on the success of previous commands in the pipeline, you can use PowerShell’s pipeline chain operators. For more information about these operators, see Recipe 2.1.

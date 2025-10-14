@@ -1,0 +1,66 @@
+16.1 View and Modify Environment Variables
+Problem
+You want to interact with your system’s environment variables.
+
+Solution
+To interact with environment variables, access them in almost the same way that you access regular PowerShell variables. The only difference is that you place env: between the dollar sign ($) and the variable name:
+
+PS > $env:Username
+Lee
+You can modify environment variables this way, too. For example, to temporarily add the current directory to the path:
+
+PS > Invoke-DemonstrationScript
+Invoke-DemonstrationScript.ps1: The term 'Invoke-DemonstrationScript.ps1' is not
+recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+
+Suggestion [3,General]: The command Invoke-DemonstrationScript.ps1 was not found,
+but does exist in the current location. PowerShell does not load commands from
+the current location by default. If you trust this command, instead type:
+".\Invoke-DemonstrationScript.ps1". See "get-help about_Command_Precedence"
+for more details.
+
+PS > $env:PATH = $env:PATH + ".;"
+PS > Invoke-DemonstrationScript
+The script ran!
+Discussion
+In batch files, environment variables are the primary way to store temporary information or to transfer information between batch files. PowerShell variables and script parameters are more effective ways to solve those problems, but environment variables continue to provide a useful way to access common system settings, such as the system’s path, temporary directory, domain name, username, and more.
+
+PowerShell surfaces environment variables through its environment provider: a container that lets you work with environment variables much as you would work with items in the filesystem or registry providers. By default, PowerShell defines an env: drive (much like c: or d:) that provides access to this information:
+
+PS > dir env:
+
+Name                          Value
+----                          -----
+Path                          c:\progra~1\ruby\bin;C:\WINDOWS\system32;C:\
+TEMP                          C:\DOCUME~1\Lee\LOCALS~1\Temp
+SESSIONNAME                   Console
+PATHEXT                       .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;
+(...)
+Since it’s a regular PowerShell drive, the full way to get the value of an environment variable looks like this:
+
+PS > Get-Content Env:\Username
+Lee
+When it comes to environment variables, though, that is a syntax you will almost never need to use, because of PowerShell’s support for the Get-Content and Set-Content variable syntax, which shortens that to:
+
+PS > $env:Username
+Lee
+This syntax works for all drives but is used most commonly to access environment variables. For more information about this syntax, see Recipe 16.3.
+
+Some environment variables actually get their values from a combination of two places: the machine-wide settings and the current-user settings. If you want to access environment variable values specifically configured at the machine or user level, use the [Environment]::GetEnvironmentVariable() method. For example, if you’ve defined a tools directory in your path, you might see:
+
+PS > [Environment]::GetEnvironmentVariable("Path", "User")
+d:\lee\tools
+To set these machine- or user-specific environment variables permanently, use the [Environment]::SetEnvironmentVariable() method:
+
+[Environment]::SetEnvironmentVariable(<name>, <value>, <target>)
+The target parameter defines where this variable should be stored: User for the current user and Machine for all users on the machine. For example, to permanently add your tools directory to your path:
+
+$pathElements = @([Environment]::GetEnvironmentVariable("Path", "User") -split ";")
+$pathElements += "d:\tools"
+$newPath = $pathElements -join ";"
+[Environment]::SetEnvironmentVariable("Path", $newPath, "User")
+For more information about modifying the system path, see Recipe 16.2.
+
+For more information about the Get-Content and Set-Content variable syntax, see “Variables”. For more information about the environment provider, type Get-Help about_Environment_Provider.

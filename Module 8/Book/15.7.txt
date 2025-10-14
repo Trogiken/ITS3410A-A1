@@ -1,0 +1,11 @@
+15.7 Output Warnings, Errors, and Terminating Errors
+Problem
+You want your script to notify its caller of a warning, error, or terminating error.
+
+Solution
+To write warnings and errors, use the Write-Warning and Write-Error cmdlets, respectively. Use the throw statement to generate a terminating error.
+
+Discussion
+When you need to notify the caller of your script about an unusual condition, the Write-Warning, Write-Error, and throw statements are the way to do it. If your user should consider the message as more of a warning, use the Write-Warning cmdlet. If your script encounters an error (but can reasonably continue past that error), use the Write-Error cmdlet. If the error is fatal and your script simply cannot continue, use a throw statement.
+
+For more information on generating these errors and handling them when thrown by other scripts, see Recipe 15.6. For more information about error management in PowerShell, see “Managing Errors”. For more information about running scripts, see Recipe 1.2.
